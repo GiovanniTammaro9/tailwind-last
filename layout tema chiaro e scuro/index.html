@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modalità Chiara e Scura</title>
+  <!-- CDN di Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Aggiungi la transizione per un effetto fluido */
+    html {
+      transition: background-color 0.3s, color 0.3s;
+    }
+  </style>
+</head>
+<body class="bg-white text-black">
+  
+  <div class="min-h-screen flex items-center justify-center">
+    <div class="p-6 rounded-lg shadow-xl w-full max-w-lg">
+      <h1 class="text-3xl font-bold text-center mb-4">Benvenuto nel mio sito!</h1>
+      <p class="text-lg text-center">Questa è una demo della modalità chiara e scura usando Tailwind CSS.</p>
+      
+      <div class="mt-6 flex justify-center space-x-4">
+        <button id="toggle-theme" class="px-4 py-2 bg-blue-500 text-white rounded-md">Cambia Tema</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Funzione per cambiare il tema
+    const toggleThemeButton = document.getElementById('toggle-theme');
+    
+    // Controlliamo se il tema scuro è già attivo
+    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    // Applichiamo il tema scuro di default se l'utente preferisce la modalità scura
+    if (prefersDarkScheme) {
+      document.documentElement.classList.add('dark');
+    }
+
+    toggleThemeButton.addEventListener('click', () => {
+      // Aggiungi o rimuovi la classe dark per cambiare tema
+      document.documentElement.classList.toggle('dark');
+    });
+  </script>
+  
+</body>
+</html>
+
